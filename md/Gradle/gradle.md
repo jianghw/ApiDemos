@@ -1,5 +1,26 @@
 ## 1. 命令
 
+#### 1.1 创建
+
+mkdir file_name
+cd file_name
+* gradle init
+(使用Kotlin DSL使用gradle init --dsl kotlin)
+
+* ./gradlew tasks
+**win:** gradlew tasks
+tasks命令列出可以调用的Gradle任务，包括base插件添加的任务，及添加的自定义任务
+
+
+#### 1.2 分析和调试
+
+* ./gradlew hw_zip --scan
+* gradlew build --scan
+--scan选项或将构建扫描插件明确应用于您的项目
+
+* gradlew properties
+ 扫描信息：scans.gradle.com
+
 * 强刷新
 ./gradlew --refresh-dependencies assemble
 
