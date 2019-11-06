@@ -11,7 +11,6 @@ cd file_name
 **win:** gradlew tasks
 tasks命令列出可以调用的Gradle任务，包括base插件添加的任务，及添加的自定义任务
 
-
 #### 1.2 分析和调试
 
 * ./gradlew hw_zip --scan
@@ -23,6 +22,36 @@ tasks命令列出可以调用的Gradle任务，包括base插件添加的任务�
 
 * 强刷新
 ./gradlew --refresh-dependencies assemble
+
+#### 1.3 检查依赖项
+
+#### 1.4 自定义依赖配置
+
+* 1.4.1 Gradle在**configuration**的帮助下表示依赖项的范围
+
+```groovy
+  repositries{
+    jcenter()
+  }
+  configurations{
+    hw_jasper
+  }
+  dependencies{
+    hw_jasper 'org.apache.tomcat:tomcat-jasper:9.2.1'
+  }
+```
+
+* 1.4.2 从其他配置继承依赖项
+
+```groovy
+  configurations{
+    hwTest.extendsFrom testImplementation
+  }
+  dependencies{
+    testImplementation 'junit:junit:4.2.5'
+    hwTest 'org.apache.components:client:3.2.1'
+  }
+```
 
 ## 语义化
 * major.minor.patch
