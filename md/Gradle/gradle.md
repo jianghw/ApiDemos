@@ -13,9 +13,9 @@ tasks命令列出可以调用的Gradle任务，包括base插件添加的任务�
 
 #### 1.2 分析和调试
 
-* ./gradlew hw_zip --scan
-* gradlew build --scan
---scan选项或将构建扫描插件明确应用于您的项目
+* scan 扫描插件
+./gradlew hw_zip --scan     
+gradlew build --scan
 
 * gradlew properties
  扫描信息：scans.gradle.com
@@ -25,6 +25,21 @@ tasks命令列出可以调用的Gradle任务，包括base插件添加的任务�
 
 #### 1.3 检查依赖项
 
+* 1.3.1 列出项目中的依赖项
+gradle -q dependencies --configuration hw_jasper
+gradlew app: dependencies
+
+* 1.3.2 依赖冲突
+gradle -q dependencyInsight --dependency commons-codec --configuration scm
+
+* 1.3.4 自定义原因说明依赖项声明的合理性
+```groovy
+  dependencies {
+      implementation('org.ow2.asm:asm:7.1') {
+          because 'we require a JDK 9 compatible bytecode generator'
+      }
+  }
+```
 #### 1.4 自定义依赖配置
 
 * 1.4.1 Gradle在**configuration**的帮助下表示依赖项的范围
