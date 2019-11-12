@@ -27,7 +27,7 @@ gradlew build --scan
 
 * 1.3.1 列出项目中的依赖项
 gradle -q dependencies --configuration hw_jasper
-gradlew app: dependencies
+gradlew app:dependencies
 
 * 1.3.2 依赖冲突
 gradle -q dependencyInsight --dependency commons-codec --configuration scm
